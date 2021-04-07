@@ -1,0 +1,26 @@
+#cityCards {
+    margin: 5px;
+    min-width: initial;
+}
+#cityInput {
+    width: 82%;
+    padding: 10px;
+    margin: auto;
+}
+#nav-mobile {
+    max-width: 300px;
+    justify-content: center;
+    overflow-x: hidden;
+}
+main {
+    padding-left: 300px;
+}
+#days {
+    padding: 30px;
+    height: 15%;
+}
+@media only screen and (max-width: 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
+}
