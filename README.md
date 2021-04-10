@@ -4,6 +4,7 @@ Connects to Weather API to present user with a city's 5-day Forecast
 -----Deployment-----</br>
 Presented is placeholder information</br>
 
+Cities searched are restricted to US cities to avoid any errors</br>
 The user will have access to a sidenav on any device</br>
 In the sidenav the user is presented with the title of the Web App plus a short sentence of what it does</br>
 Under the title there's is a searchbox, that also uses a Google Maps/Places API that will autocomplete/suggest the city the user is trying to lookup</br>
@@ -16,9 +17,11 @@ This information hidden contain the weather of the city for the next five days i
 
 When the user searches for another city, the previous information is cleared and the new information is presented</br></br>
 
-APIs in Use: Google Maps API, Google Places API, OpenWeather API
+APIs in Use: Google Maps API, Google Autocomplete Places API, OpenWeather API
 
 ![Screenshot of Web App:](./assets/Forecast-Dashboard-Screenshot1.png)
 ![Screenshot of Web App:](./assets/Forecast-Dashboard-Screenshot2.png)
 
-GITHUB URL: https://github.com/Anthony2428/Forecast-Dashboard</br></br>
+</br></br>
+GITHUB URL: https://github.com/Anthony2428/Forecast-Dashboard
+GITHUB Pages URL: https://anthony2428.github.io/Forecast-Dashboard/<br></br>

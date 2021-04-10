@@ -1,7 +1,9 @@
+// This code handles the sidenav 
 document.addEventListener('DOMContentLoaded', function() {
     let elems = document.querySelectorAll('.sidenav');
     let instances = M.Sidenav.init(elems);
 });
+// This code sets the next 5 days in order to match API Data
 const dayOne = moment().format("YYYY-MM-DD");
 const dayTwo = moment().add(1, 'days').format('YYYY-MM-DD');
 const dayThree = moment().add(2, 'days').format('YYYY-MM-DD');
@@ -9,11 +11,12 @@ const dayFour = moment().add(3, 'days').format('YYYY-MM-DD');
 const dayFive = moment().add(4, 'days').format('YYYY-MM-DD');
 const daySix = moment().add(5, 'days').format('YYYY-MM-DD');
 
+// Connecting HTML elements
 const fiveDayWeather = document.getElementById('fiveDayWeather');
 const displayCityName = document.getElementById('cityName');
 
+// Handles the auto comnplete Searching, and calls weather api upon choosing a city
 let autocomplete;
-
 function initAutocomplete() {
     autocomplete = new google.maps.places.Autocomplete(
         document.getElementById('cityInput'), 
@@ -25,12 +28,13 @@ function initAutocomplete() {
         
         autocomplete.addListener('place_changed', showWeatherData);
 };
+// Current Weather and Show Weather fetch the data needed to present the current weather,
+// and Five day weather forecast
 const currentWeather = async (cityName) => {
     
     const results = await fetch(`https://api.openweathermap.org/data/2.5/find?q=${cityName}&units=imperial&appid=80fbbecd4e1e42900bde6bcfffca49bc`);
         
         const json = await results.json();
-        console.log(json);
 
         let windDirect = windDirection(json.list[0].wind.deg)
         let todaysDate = document.getElementById('todayDate');
@@ -62,29 +66,6 @@ const showWeatherData = async () => {
             getWeatherData(city.name);
         }
         
-}
-
-const windDirection = num => {
-    if (num > 337.5) return 'N';
-    if (num > 292.5) return 'NW';
-    if (num > 247.5) return 'W';
-    if (num > 202.5) return 'SW';
-    if (num > 157.5) return 'S';
-    if (num > 122.5) return 'SE';
-    if (num > 67.5) return 'E';
-    if (num > 22.5){return 'NE';}
-    return 'N';
-}
-
-const clearData = () => {
-    let display = document.getElementById('weatherData');
-    let cards = document.querySelectorAll('#weatherDisplay');
-    let icon = document.getElementById('weatherMainIcon');
-    icon.parentNode.removeChild(icon);
-    for (let i = 0; i < cards.length; i++) {
-        const element = cards[i];
-        display.removeChild(element);
-    }
 }
 async function getWeatherData(cityName) {
     currentWeather(cityName)
@@ -181,4 +162,28 @@ async function getWeatherData(cityName) {
         space.append(weatherCardCollection, weatherCardCollection2, weatherCardCollection3, weatherCardCollection4, weatherCardCollection5, weatherCardCollection6)
 
 };
+// Converts the wind direction from degrees to actual direction
+const windDirection = num => {
+    if (num > 337.5) return 'N';
+    if (num > 292.5) return 'NW';
+    if (num > 247.5) return 'W';
+    if (num > 202.5) return 'SW';
+    if (num > 157.5) return 'S';
+    if (num > 122.5) return 'SE';
+    if (num > 67.5) return 'E';
+    if (num > 22.5){return 'NE';}
+    return 'N';
+}
+// Handles Clearing the weather data already shown
+const clearData = () => {
+    let display = document.getElementById('weatherData');
+    let cards = document.querySelectorAll('#weatherDisplay');
+    let icon = document.getElementById('weatherMainIcon');
+    icon.parentNode.removeChild(icon);
+    for (let i = 0; i < cards.length; i++) {
+        const element = cards[i];
+        display.removeChild(element);
+    }
+}
+// Calls to show placeholder weather, in this case 'Seattle'.
 getWeatherData(displayCityName.textContent);
