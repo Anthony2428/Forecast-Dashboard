@@ -1,6 +1,11 @@
+.container {
+    width:90%;
+}
 #cityCards {
     margin: 5px;
     min-width: initial;
+    border: 2px solid dimgray;
+    background-color: royalblue;
 }
 #cityInput {
     width: 82%;
@@ -13,14 +18,55 @@
     overflow-x: hidden;
 }
 main {
+    padding: 70px 0;
     padding-left: 300px;
+}
+#details {
+    height: 350px;
+    font-weight: bold;
+    color: white;
+    margin: auto;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    width: max-content;
+    padding: 70px 0px;
 }
 #days {
     padding: 30px;
     height: 15%;
 }
+.weatherIcon {
+    width: 75%;
+    margin: -10px;
+}
+#weatherDisplay {
+    width: fit-content;
+    background-color: lightblue;
+    color:white;
+    display: flex;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.weatherBlock {
+    align-items: center;
+    text-align: center;
+}
 @media only screen and (max-width: 992px) {
     header, main, footer {
         padding-left: 0;
     }
+}
+.card .card-content p {
+    margin: 0;
+    width: 100px;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+    font-weight: bold;
+}
+#cityTitle {
+    background-color: lightblue;
+    border-top: solid 2px;
 }
