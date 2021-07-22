@@ -32,7 +32,7 @@ function initAutocomplete() {
 // and Five day weather forecast
 const currentWeather = async (cityName) => {
     
-    const results = await fetch(`https://api.openweathermap.org/data/2.5/find?q=${cityName}&units=imperial&appid=80fbbecd4e1e42900bde6bcfffca49bc`);
+    const results = await fetch(`https://api.openweathermap.org/data/2.5/find?q=${cityName}&units=imperial&appid=AIzaSyAlj2b2IgEpPmC1JZVSL4IkNKI6f21Fjng`);
         
         const json = await results.json();
 
@@ -69,7 +69,7 @@ const showWeatherData = async () => {
 }
 async function getWeatherData(cityName) {
     currentWeather(cityName)
-    const results = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=80fbbecd4e1e42900bde6bcfffca49bc`);
+    const results = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=AIzaSyAlj2b2IgEpPmC1JZVSL4IkNKI6f21Fjng`);
         
         const json = await results.json();
         
