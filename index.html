@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='./assets/css/style.css'>
+    <title>Forecast Dashboard</title>
+</head>
+<body>
+    <header>
+        <div class="container"><a href="#" data-target="nav-mobile" class="top-nav sidenav-trigger full hide-on-large-only"><i class="material-icons">menu</i></a>
+        </div>
+        <ul id="nav-mobile" class="sidenav sidenav-fixed">
+        <li><div class="user-view">
+        <div class="background">
+        </div>
+        <h2 style="font-family: 'Pacifico', cursive;">Weather Forecast</h2>
+        <p>Search the weather in your City!</p>
+        </div></li>
+        <li><span><input id="cityInput" placeholder='Seattle'></span></input></li>
+        <div id="matches" style="height:70px; overflow-y:hidden; white-space:pre"></div>
+        <li><div class="divider"></div></li>
+        </ul>
+    </header>
+
+    <main>
+        <div class='container'>
+            <div id='cityCards' class="card" >
+                <div class="row">
+                    <div class="col s6">
+                        <div class="card-image" id='details'>
+                            <p id='todayDate'></p>
+                            <p id='temperatureNow'></p>
+                            <p id='humidity'></p>
+                            <p id='windSpeed'></p>
+                            <p id='population'></p>
+                        </div>
+                    </div>
+                    <div class="col s6" id='currentIcon'></div>
+                  </div>
+                  <div class="card-content activator waves-effect waves-block waves-light" id='cityTitle'>
+                      <span class="card-title activator grey-text text-darken-4" id='cityName'>Seattle</span>
+                    </div>
+                    <div class="card-reveal" id='weatherData'>
+                        <span class='card-title'><h4>Next 5 Days:<i class="material-icons right">close</i></h4></span>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVSGd4OFOOsZ91nXm4QLdQdyOtkr-Z5gU&libraries=places&callback=initAutocomplete">    
+    </script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src='./assets/js/script.js'></script>
+
+</body>
+</html>
